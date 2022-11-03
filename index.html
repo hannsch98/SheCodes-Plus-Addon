@@ -4,11 +4,20 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>HTML Inputs</title>
+		<title>HTML Select elements</title>
+		<style>
+			select {
+				display: block;
+				padding: 5px 8px;
+				border-radius: 4px;
+				min-width: 200px;
+				margin: 15px 0;
+			}
+		</style>
 	</head>
 	<body>
 		<form action="submit.html">
-			<div>
+			<!-- <div>
 				<label for="first-name">First name?</label>
 				<input
 					type="text"
@@ -60,8 +69,38 @@
 				<label for="winter">Winter</label>
 				<br />
 			</div>
+ -->
+			<div>
+				<label for="countries">Where from?</label>
+				<select id="countries">
+					<option value="">select...</option>
+					<option value="uk">UK</option>
+					<option value="spain">Spain</option>
+					<option value="iceland">Iceland</option>
+				</select>
+			</div>
 
 			<input type="submit" value="Submit" />
 		</form>
+
+		<script>
+			function showSelection(event) {
+				if (event.target.value.length > 0) {
+					if (event.target.value === "uk") {
+						alert("Good day, sir!");
+					}
+					if (event.target.value === "spain") {
+						alert("Buen día, señor!");
+					}
+					if (event.target.value === "iceland") {
+						alert("Góðan daginn, herra!");
+					}
+				}
+			}
+
+			let countriesSelect = document.querySelector("#countries");
+
+			countriesSelect.addEventListener("change", showSelection);
+		</script>
 	</body>
 </html>
