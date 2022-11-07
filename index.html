@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>HTML Select elements</title>
+		<title>SheCodes Plus Addon</title>
 		<style>
 			select {
 				display: block;
@@ -16,8 +16,9 @@
 		</style>
 	</head>
 	<body>
-		<form action="submit.html">
-			<!-- <div>
+		<!-- 		<form action="submit.html">
+		
+			<div>
 				<label for="first-name">First name?</label>
 				<input
 					type="text"
@@ -69,7 +70,7 @@
 				<label for="winter">Winter</label>
 				<br />
 			</div>
- -->
+
 			<div>
 				<label for="countries">Where from?</label>
 				<select id="countries">
@@ -80,10 +81,13 @@
 				</select>
 			</div>
 
+
+
 			<input type="submit" value="Submit" />
 		</form>
 
 		<script>
+			/* dropdown selection triggers alert:
 			function showSelection(event) {
 				if (event.target.value.length > 0) {
 					if (event.target.value === "uk") {
@@ -100,7 +104,27 @@
 
 			let countriesSelect = document.querySelector("#countries");
 
-			countriesSelect.addEventListener("change", showSelection);
+			countriesSelect.addEventListener("change", showSelection); */
+		</script>
+			 -->
+
+		<div id="greeting">Hello!</div>
+		<div id="date"></div>
+
+		<script>
+			function sayHello() {
+				let greetings = document.querySelector("#greeting");
+				greetings.innerHTML = "Hallöchen!";
+			}
+
+			function displayDate() {
+				let date = document.querySelector("#date");
+				date.innerHTML = new Date();
+			}
+
+			setTimeout(sayHello, 3000);
+
+			setInterval(displayDate, 1000);
 		</script>
 	</body>
 </html>
