@@ -5,11 +5,12 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.38/moment-timezone-with-data-1970-2030.min.js"></script>
 		<title>SheCodes Plus Addon</title>
 		<style></style>
 	</head>
 	<body>
-		<div id="today"></div>
+		<!-- 		<div id="today"></div>
 		<div id="tomorrow"></div>
 
 		<script>
@@ -21,6 +22,22 @@
 			tomorrowElement.innerHTML = today
 				.add(10, "year")
 				.format("dddd[,] D[.] MMMM YYYY");
+		</script> -->
+
+		<div id="tokyo"></div>
+		<div id="local"></div>
+
+		<script>
+			let tokyoTime = moment()
+				.tz("Asia/Tokyo")
+				.format("[Tokyo: ] D[.] MMMM YYYY[,] HH:mm");
+			let tokyoTimeElement = document.querySelector("#tokyo");
+			tokyoTimeElement.innerHTML = tokyoTime;
+
+			let localTimezone = moment.tz.guess();
+			let localTime = moment().format("D[.] MMMM YYYY[,] HH:mm");
+			let localTimeElement = document.querySelector("#local");
+			localTimeElement.innerHTML = `Current timezone: ${localTimezone}, ${localTime}`;
 		</script>
 	</body>
 </html>
