@@ -12,41 +12,22 @@
 		<label for="countries">Display time in:</label>
 		<select id="countries">
 			<option value="">select country...</option>
-			<option value="paris">Paris 🇫🇷</option>
-			<option value="tokyo">Tokyo 🇯🇵</option>
-			<option value="sydney">Sydney 🇦🇺</option>
+			<option value="Europe/Paris">Paris 🇫🇷</option>
+			<option value="Asia/Tokyo">Tokyo 🇯🇵</option>
+			<option value="Australia/Sydney">Sydney 🇦🇺</option>
+			<option value="Europe/Vienna">Vienna 🇦🇹</option>
 		</select>
 
 		<script>
 			function showSelection(event) {
-				if (event.target.value.length > 0) {
-					if (event.target.value === "paris") {
-						let parisTimezone = moment()
-							.tz("Europe/Paris")
-							.format(
-								"[It is] dddd[,] MMMM D[,] YYYY h:mm A [in Europe/Paris 🇫🇷.]"
-							);
+				let currentTimezone = event.target.value;
 
-						alert(parisTimezone);
-					}
-					if (event.target.value === "tokyo") {
-						let tokyoTimezone = moment()
-							.tz("Asia/Tokyo")
-							.format(
-								"[It is] dddd[,] MMMM D[,] YYYY h:mm A [in Asia/Tokyo 🇯🇵.]"
-							);
+				if (currentTimezone.length > 0) {
+					let currentTime = moment()
+						.tz(currentTimezone)
+						.format("dddd[,] MMMM D[,] YYYY h:mm A");
 
-						alert(tokyoTimezone);
-					}
-					if (event.target.value === "sydney") {
-						let sydneyTimezone = moment()
-							.tz("Australia/Sydney")
-							.format(
-								"[It is] dddd[,] MMMM D[,] YYYY h:mm A [in Australia/Sydney 🇦🇺.]"
-							);
-
-						alert(sydneyTimezone);
-					}
+					alert(`It is ${currentTime} in ${currentTimezone}.`);
 				}
 			}
 
